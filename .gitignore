@@ -11,3 +11,4 @@
 
 /mautrix-whatsapp
 /start
+cmd/mautrix-whatsapp/__debug_bin*
