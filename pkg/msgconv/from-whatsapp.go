@@ -175,6 +175,12 @@ func (mc *MessageConverter) ToMatrix(
 		part, contextInfo = mc.convertPollUpdateMessage(ctx, info, waMsg.PollUpdateMessage)
 	case waMsg.EventMessage != nil:
 		part, contextInfo = mc.convertEventMessage(ctx, waMsg.EventMessage)
+	case waMsg.PinInChatMessage != nil:
+		part, contextInfo = mc.convertPinInChatMessage(ctx, waMsg.PinInChatMessage)
+	case waMsg.KeepInChatMessage != nil:
+		part, contextInfo = mc.convertKeepInChatMessage(ctx, waMsg.KeepInChatMessage)
+	case waMsg.RichResponseMessage != nil:
+		part, contextInfo = mc.convertRichResponseMessage(ctx, waMsg.RichResponseMessage)
 	case waMsg.ImageMessage != nil:
 		part, contextInfo = mc.convertMediaMessage(ctx, waMsg.ImageMessage, "photo", info, isViewOnce, previouslyConvertedPart)
 	case waMsg.StickerMessage != nil:
